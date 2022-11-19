@@ -1,17 +1,25 @@
-# setup server port
-server.port=8080
+spring:
+  datasource:
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    url: ${DATASOURCE_URL}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+  jpa:
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+    show-sql: false # Set true for debugging
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update # (create, create-drop, validate, update)
+    open-in-view: false
+  sql:
+    init:
+      platform: postgres
+      mode: always
 
-# setup local h2 database config
-spring.datasource.url=jdbc:h2:file:./data/todo-api
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=admin
-spring.datasource.password=admin
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-
-# setup local h2 database console
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
-spring.h2.console.settings.web-allow-others=false
-
-# setup local h2 tables on startup; use the value "none" in production!
-spring.jpa.hibernate.ddl-auto=update
