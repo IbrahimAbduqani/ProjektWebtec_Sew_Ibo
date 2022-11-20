@@ -1,6 +1,4 @@
 package com.example.probe2;
-import com.example.probe2.TodoItem;
-import com.example.probe2.TodoItemReposetory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,24 +9,25 @@ import java.util.List;
 @Component
 public class DataLoader implements CommandLineRunner {
     @Autowired
-    private TodoItemReposetory todoItemRepository;
+    private TasksItemRepository tasksItemRepository;
+
 
     @Override
     public void run(String... args) throws Exception {
-        List<TodoItem> todos = (List<TodoItem>) todoItemRepository.findAll();
+        List<TasksItem> todos = (List<TasksItem>) tasksItemRepository.findAll();
 
         if (todos.size() == 0) {
-            TodoItem todo1 = new TodoItem();
-            TodoItem todo2 = new TodoItem();
+            TasksItem task1 = new TasksItem();
+            TasksItem task2 = new TasksItem();
 
-            todo1.setDescription("this is the first todo");
-            todo1.setCreatedDate(Instant.now());
+            task1.setDescription("this is the first task");
+            task1.setCreatedDate(Instant.now());
 
-            todo2.setDescription("This is the second todo");
-            todo2.setCreatedDate(Instant.now());
+            task2.setDescription("This is the second task");
+            task2.setCreatedDate(Instant.now());
 
-            todoItemRepository.save(todo1);
-            todoItemRepository.save(todo2);
+            tasksItemRepository.save(task1);
+            tasksItemRepository.save(task2);
 
 
         }
