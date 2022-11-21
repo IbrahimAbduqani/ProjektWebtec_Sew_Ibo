@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/todoitems")
+@RequestMapping("/api/v1/taskitem")
 public class TasksItemController {
     private final TasksItemRepository tasksItemRepository;
 
@@ -27,6 +27,7 @@ public class TasksItemController {
         newItem.setComplete(tasksItem.isComplete());
         newItem.setCreatedDate(Instant.now());
         newItem.setModifiedDate(Instant.now());
+        newItem.setCategory(tasksItem.getCategory());
         newItem = tasksItemRepository.save(newItem);
         return newItem;
     }

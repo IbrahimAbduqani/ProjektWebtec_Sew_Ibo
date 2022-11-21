@@ -83,7 +83,6 @@ public class TasksItem implements Serializable{
         this.modifiedDate = modifiedDate;
     }
 
-
     public String getCategory() {
         return category;
     }

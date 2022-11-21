@@ -23,8 +23,10 @@ public class DataLoader implements CommandLineRunner {
             task1.setDescription("this is the first task");
             task1.setCreatedDate(Instant.now());
 
+
             task2.setDescription("This is the second task");
             task2.setCreatedDate(Instant.now());
+
 
             tasksItemRepository.save(task1);
             tasksItemRepository.save(task2);
