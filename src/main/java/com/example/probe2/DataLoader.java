@@ -8,6 +8,7 @@ import java.util.List;
 
 @Component
 public class DataLoader implements CommandLineRunner {
+
     @Autowired
     private TasksItemRepository tasksItemRepository;
 
@@ -31,6 +32,7 @@ public class DataLoader implements CommandLineRunner {
             tasksItemRepository.save(task1);
             tasksItemRepository.save(task2);
 
+            //commit
 
         }
     }
