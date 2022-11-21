@@ -46,6 +46,7 @@ public class TasksItemController {
             updatedItem.setDescription(tasksItem.getDescription());
             updatedItem.setComplete(tasksItem.isComplete());
             updatedItem.setModifiedDate(Instant.now());
+            updatedItem.setCategory(tasksItem.getCategory());
             updatedItem = tasksItemRepository.save(updatedItem);
         }
 

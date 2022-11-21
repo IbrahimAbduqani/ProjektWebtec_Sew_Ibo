@@ -25,19 +25,22 @@ public class TasksItem implements Serializable{
 
     private Instant modifiedDate;
 
+    private String category;
+
     public TasksItem() {}
 
-    public TasksItem(String description) {
+    public TasksItem(String description, String category) {
         this.description = description;
         this.complete = false;
         this.createdDate = Instant.now();
         this.modifiedDate = Instant.now();
+        this.category = category;
     }
 
     @Override
     public String toString() {
-        return String.format("TodoItem{id=%d, description='%s', complete='%s', createdDate='%s', modifiedDate='%s'}",
-                id, description, complete, createdDate, modifiedDate);
+        return String.format("TodoItem{id=%d, description='%s', complete='%s', createdDate='%s', modifiedDate='%s', category ='%s'}",
+                id, description, complete, createdDate, modifiedDate, category);
     }
 
     public Long getId() {
@@ -78,5 +81,14 @@ public class TasksItem implements Serializable{
 
     public void setModifiedDate(Instant modifiedDate) {
         this.modifiedDate = modifiedDate;
+    }
+
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
